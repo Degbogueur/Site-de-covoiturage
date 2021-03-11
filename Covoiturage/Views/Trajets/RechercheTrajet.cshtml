@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Covoiturage.Trajet>
+
+@{
+    ViewBag.Title = "Résultats de Recherche";
+}
+
+<table id="myTable" style="display: none;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Lieu_Depart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lieu_Arrivee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Depart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Heure_Depart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nbr_Places_Dispo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lieu_Depart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lieu_Arrivee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Depart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Heure_Depart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nbr_Places_Dispo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id_Trajet }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id_Trajet }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id_Trajet })
+            </td>
+        </tr>
+
+    }
+</table>

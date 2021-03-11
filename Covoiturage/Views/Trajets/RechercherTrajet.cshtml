@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Rechercher";
+}
+
+<h3>Où voulez-vous aller?</h3>
+
+@using (Html.BeginForm("RechercheTrajet", "Trajets", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <table>
+        <tr>
+            <td>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Lieu de Départ</label>
+                    <div class="col-md-8">
+                        <input type="text" name="Lieu_Depart" class="form-control" />
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Lieu D'arrivée</label>
+                    <div class="col-md-8">
+                        <input type="text" name="Lieu_Arrivee" class="form-control" />
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Date de Départ</label>
+                    <div class="col-md-8">
+                        <input type="date" name="Date_Depart" class="form-control" />
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <input type="submit" value="Rechercher" class="btn-success form-control" onclick="toggleTable()" />
+                </div>
+            </td>
+        </tr>
+    </table>
+}
+
+@*<script>
+        function toggleTable() {
+            var lTable = document.getElementById("myTable");
+            lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
+        }
+    </script>
+
+    <table id="myTable" style="display: none;">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Lieu_Depart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lieu_Arrivee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_Depart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Heure_Depart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nbr_Places_Dispo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lieu_Depart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lieu_Arrivee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_Depart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Heure_Depart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nbr_Places_Dispo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id_Trajet }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id_Trajet }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id_Trajet })
+                </td>
+            </tr>
+
+        }
+    </table>*@
